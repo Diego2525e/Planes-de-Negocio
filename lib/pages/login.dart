@@ -58,7 +58,7 @@ class Login extends StatelessWidget {
                 minWidth: 250.0,
                 child: RaisedButton(
                   child: Text("Ingresar"),
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushNamed(context, 'home'),
                   color: Colors.blue,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
