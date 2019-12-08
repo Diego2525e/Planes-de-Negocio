@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planes_app/pages/profile_edit.dart';
 
 class Profile extends StatelessWidget {
   @override
@@ -15,9 +16,7 @@ class Profile extends StatelessWidget {
             style: TextStyle(fontSize: 25),
           ),
         ),
-        Divider(),
         CircleAvatar(
-          // backgroundImage: ExactAssetImage('assets/user.jpg'),
           minRadius: 30,
           maxRadius: 90,
         ),
@@ -78,7 +77,8 @@ class Profile extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)),
             child: Text("Editar"),
-            onPressed: () {},
+            onPressed: () =>
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileEdit())),
             color: Colors.blue,
             textColor: Colors.white,
             padding: EdgeInsets.fromLTRB(10, 10, 10, 10),

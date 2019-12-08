@@ -3,6 +3,7 @@ import 'package:planes_app/pages/home.dart';
 import 'package:planes_app/pages/profile.dart';
 import 'package:planes_app/pages/search.dart';
 
+
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -22,12 +23,6 @@ class AppState extends StatefulWidget {
 
 class _AppState extends State<AppState> {
   int _selectedIndex = 0;
-  // List<Widget> _widgetOptions = <Widget>[
-  //   home(),
-  //   search(),
-  //   profile(),
-  // ];
-
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
