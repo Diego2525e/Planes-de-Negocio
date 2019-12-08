@@ -1,21 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:planes_app/share/btnNavigatorBar.dart';
- 
+
 class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Search',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Search'),
-        ),
-        body: Center(
-          child: Container(
-            child: Text('Search'),
+    TextEditingController editingController = TextEditingController();
+    var items = List<String>();
+    return Container(
+      child: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              onChanged: (value) {},
+              controller: editingController,
+              decoration: InputDecoration(
+                labelText: "Asignatura",
+                hintText: "Buscar una asignatura",
+                prefixIcon: Icon(Icons.search),
+              ),
+            ),
           ),
-        ),
-        bottomNavigationBar: navigatorBarShare(1,context),
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text('${items[index]}'),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -53,7 +53,7 @@ class Login extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.0)),
                   child: Text("Ingresar"),
-                  onPressed: () => Navigator.pushNamed(context, 'home'),
+                  onPressed: () => Navigator.pushReplacementNamed(context, 'app'),
                   color: Colors.blue,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),

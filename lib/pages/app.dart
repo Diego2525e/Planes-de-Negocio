@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:planes_app/pages/profileWidget.dart';
-import 'package:planes_app/pages/searchWidget.dart';
-
-import 'homeWidget.dart';
+import 'package:planes_app/pages/home.dart';
+import 'package:planes_app/pages/profile.dart';
+import 'package:planes_app/pages/search.dart';
 
 class App extends StatelessWidget {
-  static const String _title = 'Flutter Code Sample';
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: _title,
+      debugShowCheckedModeBanner: false,
       home: AppState(),
     );
   }
@@ -25,11 +22,11 @@ class AppState extends StatefulWidget {
 
 class _AppState extends State<AppState> {
   int _selectedIndex = 0;
-  List<Widget> _widgetOptions = <Widget>[
-    home(),
-    search(),
-    profile(),
-  ];
+  // List<Widget> _widgetOptions = <Widget>[
+  //   home(),
+  //   search(),
+  //   profile(),
+  // ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -39,14 +36,13 @@ class _AppState extends State<AppState> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
+        title: Text('TutorMe', style: TextStyle(color: Colors.black)),
+        backgroundColor: Colors.grey[200],
       ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      body: Center(child: _callPage(_selectedIndex)
+          ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
@@ -66,5 +62,18 @@ class _AppState extends State<AppState> {
         onTap: _onItemTapped,
       ),
     );
+  }
+}
+
+Widget _callPage(int paginaActual) {
+  switch (paginaActual) {
+    case 0:
+      return Home();
+    case 1:
+      return Search();
+    case 2:
+      return Profile();
+    default:
+      return Home();
   }
 }
