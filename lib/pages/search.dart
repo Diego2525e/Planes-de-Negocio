@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:planes_app/share/btnNavigatorBar.dart';
-
-class Home extends StatelessWidget {
+ 
+class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Home',
+      title: 'Search',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Home'),
+          title: Text('Search'),
         ),
         body: Center(
           child: Container(
-            child: Text('Home'),
+            child: Text('Search'),
           ),
         ),
-        bottomNavigationBar: navigatorBarShare(0,context)
+        bottomNavigationBar: navigatorBarShare(1,context),
       ),
     );
   }

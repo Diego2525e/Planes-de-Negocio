@@ -19,8 +19,8 @@ class Login extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.only(top: 10, bottom: 10),
                 child: Text(
-                  "LOGIN",
-                  style: new TextStyle(fontSize: 30),
+                  "Login",
+                  style: new TextStyle(fontSize: 25),
                 ),
               ),
               Container(
@@ -28,12 +28,9 @@ class Login extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      "User",
-                      style: new TextStyle(fontSize: 15, color: Colors.blue),
-                      textAlign: TextAlign.left,
+                    TextField(
+                      decoration: InputDecoration(labelText: 'User'),
                     ),
-                    TextField(),
                   ],
                 ),
               ),
@@ -42,12 +39,8 @@ class Login extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      "Password",
-                      style: new TextStyle(fontSize: 15, color: Colors.blue),
-                      textAlign: TextAlign.left,
-                    ),
                     TextField(
+                      decoration: InputDecoration(labelText: 'Password'),
                       autofocus: false,
                       obscureText: true,
                     )
@@ -57,6 +50,8 @@ class Login extends StatelessWidget {
               ButtonTheme(
                 minWidth: 250.0,
                 child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0)),
                   child: Text("Ingresar"),
                   onPressed: () => Navigator.pushNamed(context, 'home'),
                   color: Colors.blue,
@@ -67,7 +62,8 @@ class Login extends StatelessWidget {
               ),
               FlatButton(
                 child: Text('Registrarse'),
-                onPressed: ()=> Navigator.pushReplacementNamed(context, 'register'),
+                onPressed: () =>
+                    Navigator.pushReplacementNamed(context, 'register'),
               )
             ],
           ),

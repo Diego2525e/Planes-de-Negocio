@@ -19,8 +19,8 @@ class Register extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.only(top: 10, bottom: 10),
                 child: Text(
-                  "REGISTRO",
-                  style: new TextStyle(fontSize: 30),
+                  "Registro",
+                  style: new TextStyle(fontSize: 25),
                 ),
               ),
               Container(
@@ -28,12 +28,9 @@ class Register extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      "User",
-                      style: new TextStyle(fontSize: 15, color: Colors.blue),
-                      textAlign: TextAlign.left,
+                    TextField(
+                      decoration: InputDecoration(labelText: 'User'),
                     ),
-                    TextField(),
                   ],
                 ),
               ),
@@ -42,12 +39,8 @@ class Register extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      "Password",
-                      style: new TextStyle(fontSize: 15, color: Colors.blue),
-                      textAlign: TextAlign.left,
-                    ),
                     TextField(
+                      decoration: InputDecoration(labelText: 'Password'),
                       autofocus: false,
                       obscureText: true,
                     )
@@ -55,6 +48,8 @@ class Register extends StatelessWidget {
                 ),
               ),
               ButtonTheme(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
                 minWidth: 250.0,
                 child: RaisedButton(
                   child: Text("Registrarse"),
@@ -67,7 +62,8 @@ class Register extends StatelessWidget {
               ),
               FlatButton(
                 child: Text('Login'),
-                onPressed: ()=> Navigator.pushReplacementNamed(context, '/'),
+                onPressed: () =>
+                    Navigator.pushReplacementNamed(context, 'login'),
               )
             ],
           ),
