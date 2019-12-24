@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:planes_app/providers/userProvider.dart';
 
+import 'app.dart';
+
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -41,10 +43,10 @@ class _LoginState extends State<Login> {
                         padding: const EdgeInsets.only(top: 10, bottom: 10),
                         child: TextFormField(
                           onSaved: (value) => _emailText = value,
-                          decoration: InputDecoration(labelText: 'Usuario'),
+                          decoration: InputDecoration(labelText: 'Correo Electrónico'),
                           validator: (value) {
                             if (value.length < 3) {
-                              return 'Ingrese el nombre del usuario';
+                              return 'Ingrese el correo electrónico del usuario';
                             } else {
                               return null;
                             }
@@ -56,10 +58,10 @@ class _LoginState extends State<Login> {
                           child: TextFormField(
                             onSaved: (value) => _passwordText = value,
                             decoration:
-                                InputDecoration(labelText: 'Contrasena'),
+                                InputDecoration(labelText: 'Contraseña'),
                             validator: (value) {
                               if (value.length < 3) {
-                                return 'Ingrese una contrasena';
+                                return 'Ingrese una Contraseña';
                               } else {
                                 return null;
                               }
@@ -100,7 +102,11 @@ class _LoginState extends State<Login> {
     Map info = await userProvider.login(_emailText, _passwordText);
     print(info);
     if(info['ok']){
-      Navigator.pushReplacementNamed(context, 'app');
+      Navigator.pushReplacement(context, 
+                MaterialPageRoute(
+                  builder: (context)=>App()
+                )
+              );
     }else{
       print('Credenciales no validas');
     }

@@ -4,6 +4,8 @@ class PreferenciasUsuario {
 
   static final PreferenciasUsuario _instancia = new PreferenciasUsuario._internal();
 
+  static bool _myBool;
+
   factory PreferenciasUsuario() {
     return _instancia;
   }
@@ -14,6 +16,10 @@ class PreferenciasUsuario {
 
   initPrefs() async {
     this._prefs = await SharedPreferences.getInstance();
+  }
+
+  void signout(){
+    this._prefs.remove('token');
   }
 
   // GET y SET del nombre

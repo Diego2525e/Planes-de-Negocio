@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:planes_app/pages/login.dart';
 import 'package:planes_app/pages/profile_edit.dart';
+import 'package:planes_app/preferencias_usuario/preferencias_usuario.dart';
 
 class Profile extends StatelessWidget {
   @override
@@ -91,7 +93,15 @@ class Profile extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)),
             child: Text("Cerrar Sesion"),
-            onPressed: () {},
+            onPressed: () {
+              final prefs = new PreferenciasUsuario();
+              prefs.signout();
+              Navigator.pushReplacement(context, 
+                MaterialPageRoute(
+                  builder: (context)=>Login()
+                )
+              );
+            },
             color: Colors.blue,
             textColor: Colors.white,
             padding: EdgeInsets.fromLTRB(10, 10, 10, 10),

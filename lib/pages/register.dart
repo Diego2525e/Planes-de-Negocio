@@ -38,10 +38,10 @@ class _RegisterState extends State<Register> {
                         padding: const EdgeInsets.only(top: 10, bottom: 10),
                         child: TextFormField(
                           onSaved: (value) => _emailText = value,
-                          decoration: InputDecoration(labelText: 'Usuario'),
+                          decoration: InputDecoration(labelText: 'Correo Electrónico'),
                           validator: (value) {
                             if (value.length < 3) {
-                              return 'Ingrese el nombre del usuario';
+                              return 'Ingrese el correo electrónico del usuario';
                             } else {
                               return null;
                             }
@@ -53,10 +53,10 @@ class _RegisterState extends State<Register> {
                           child: TextFormField(
                             onSaved: (value) => _passwordText = value,
                             decoration:
-                                InputDecoration(labelText: 'Contrasena'),
+                                InputDecoration(labelText: 'Contraseña'),
                             validator: (value) {
                               if (value.length < 3) {
-                                return 'Ingrese una contrasena';
+                                return 'Ingrese una Contraseña';
                               } else {
                                 return null;
                               }
@@ -69,10 +69,10 @@ class _RegisterState extends State<Register> {
                           child: TextFormField(
                             onSaved: (value) => _passwordText2 = value,
                             decoration: InputDecoration(
-                                labelText: 'Repetir contrasena'),
+                                labelText: 'Repetir Contraseña'),
                             validator: (value) {
                               if (value.length < 3) {
-                                return 'Ingrese una contrasena';
+                                return 'Ingrese una Contraseña';
                               } else {
                                 return null;
                               }
@@ -115,12 +115,11 @@ class _RegisterState extends State<Register> {
           context: context,
           builder: (context) {
             return AlertDialog(
-              content: Text('No coinciden las contrasenas'),
+              content: Text('No coinciden las Contraseñas'),
             );
           });
     }else{
-      userProvider.nuevoUsuario(_emailText, _passwordText);
-      print('Llego aqui');
+      userProvider.nuevoUsuario(_emailText, _passwordText, context);
     }
     
   }

@@ -68,7 +68,5 @@ Widget _callPage(int paginaActual) {
       return Search();
     case 2:
       return Profile();
-    default:
-      return Home();
   }
 }

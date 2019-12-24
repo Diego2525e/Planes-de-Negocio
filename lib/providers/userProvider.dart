@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:planes_app/preferencias_usuario/preferencias_usuario.dart';
 
@@ -25,7 +26,7 @@ class UserProvider {
     }
   }
 
-  Future nuevoUsuario(String email, String password) async {
+  Future nuevoUsuario(String email, String password, BuildContext context) async {
     final authData = {
       'email': email,
       'password': password,
@@ -38,8 +39,16 @@ class UserProvider {
     Map<String, dynamic> decodedResp = json.decode(resp.body);
     if (decodedResp.containsKey('idToken')) {
       _prefs.token=decodedResp['idToken'];
+      Navigator.pushReplacementNamed(context, 'app');
       return {'ok': true, 'token': decodedResp['idToken']};
     } else {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              content: Text('El usuario ya se esta usando o su contraseña invalidad'),
+            );
+          });
       return {'ok': false, 'mensaje': decodedResp['error']['menssage']};
     }
   }
